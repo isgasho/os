@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM arm64v8/ubuntu:xenial
 # FROM arm64=arm64v8/ubuntu:xenial
 
 ENV DAPPER_RUN_ARGS --privileged
@@ -10,8 +10,8 @@ RUN mkdir -p /source/assets
 
 COPY rootfs_arm64.tar.gz /source/assets/rootfs_arm64.tar.gz
 
-ENV KERNEL_URL=https://github.com/burmilla/os-rpi-kernel/releases/download/v5.4.83-burmilla/5.4.83-burmilla-v8.tar.gz
-ENV BOOTLOADER_URL=https://github.com/burmilla/os-rpi-kernel/releases/download/v5.4.83-burmilla/rpi-bootloader.tar.gz
+ENV KERNEL_URL=https://github.com/burmilla/os-rpi-kernel/releases/download/v5.10.1-burmilla/5.10.1-burmilla-v8.tar.gz
+ENV BOOTLOADER_URL=https://github.com/burmilla/os-rpi-kernel/releases/download/v5.10.1-burmilla/rpi-bootloader.tar.gz
 
 RUN curl -fL ${KERNEL_URL} > /source/assets/kernel.tar.gz
 RUN curl -fL ${BOOTLOADER_URL} > /source/assets/rpi-bootfiles.tar.gz
