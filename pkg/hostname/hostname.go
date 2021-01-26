@@ -23,6 +23,7 @@ func SetHostnameFromCloudConfig(cc *config.CloudConfig) error {
 	}
 
 	// set hostname
+	ioutil.WriteFile("/etc/hostname", []byte(hostname+"\n"), 0644)
 	return syscall.Sethostname([]byte(hostname))
 }
 
